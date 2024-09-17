@@ -1,7 +1,11 @@
 ﻿#include <iostream>
-#include "Node.h"
+#include "MyStack.h"
 
 int main() {
-    std::cout<<"Hello World";
+    MyStack stack;
+    stack.push(1);
+    stack.push(2);
+    stack.pop();
+    std::cout<<stack.toString() << std::endl;
     return 0;
 }
