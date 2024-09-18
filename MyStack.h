@@ -1,33 +1,32 @@
-﻿#pragma once
-#include "Node.h"
+﻿#include "Node.h"
 #include <string>
-
+template <typename T>
 class MyStack {
 private:
-    Node* head;
+    Node<T>* head;
 public:
     MyStack() {
         head = nullptr;
     }
 
-    void push(int data) {
-        Node* newNode = new Node(data);
+    void push(T data) {
+        Node<T>* newNode = new Node<T>(data);
         newNode->setNext(head);
         head = newNode;
     }
 
-    int pop() {
+    T pop() {
         if (head == nullptr)
-            return -1;
-        int val = head->getData();
-        Node* temp = head;
+            return nullptr;
+        T val = head->getData();
+        Node<T>* temp = head;
         head = head->getNext();
         delete temp;
         return val;
     }
 
-    int peek() {
-        return (head == nullptr) ? -1 : head->getData();
+    T peek() {
+        return (head == nullptr) ? nullptr : head->getData();
     }
 
     bool isEmpty() {
